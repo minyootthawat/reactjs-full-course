@@ -32,7 +32,7 @@ const Tabs = (props) => {
 
     <div
       role="tablist"
-      className="tabs tabs-box py-4 justify-center flex flex-row flex-nowrap"
+      className="tabs tabs-box py-4 justify-between flex flex-row flex-nowrap"
     >
       {tabs.map((tab, index) => {
         const numOfTasks =
