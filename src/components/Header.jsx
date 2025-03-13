@@ -1,17 +1,23 @@
 import React from "react";
 
-const Header = (props) => {
-  const { todos } = props;
+const Header = ({ todos }) => {
   const todosLength = todos.length;
-  const isTasksPlural = todosLength != 1;
-  const taskOrTasks = isTasksPlural ? "tasks" : "task";
+  const taskOrTasks = todosLength !== 1 ? "tasks" : "task";
 
   return (
-    <header>
-      <h1 className="text-gradient">
-        You have {todosLength} open {taskOrTasks}.
+    <nav className="navbar justify-between md:justify-between pt-4 w-full">
+      <div className="flex items-center gap-2 text-2xl">
+        <i className="fa-solid fa-list-check"></i>
+        <h1 className="hidden md:flex">ToDo App</h1>
+      </div>
+      <h1 className="text-center text-2xl font-bold">
+        You have {todosLength} {taskOrTasks}.
       </h1>
-    </header>
+      <div className="flex items-center gap-2">
+        <i className="fa-solid fa-user"></i>
+        <h1 className="text-xl font-bold hidden md:flex">User</h1>
+      </div>
+    </nav>
   );
 };
 

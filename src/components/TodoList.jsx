@@ -11,9 +11,13 @@ const ToDoList = (props) => {
 
   return (
     <>
-      {filterTodoList.map((todo, index) => {
-        return <TodoCard key={index} todoId={todo.id} todo={todo} {...props} />;
-      })}
+      <ul className="list bg-base-100 rounded-box shadow-md w-full">
+        {filterTodoList.map((todo, index) => {
+          return (
+            <TodoCard key={index} todoId={todo.id} todo={todo} {...props} />
+          );
+        })}
+      </ul>
     </>
   );
 };

@@ -6,12 +6,12 @@ const ToDoInput = (props) => {
   const [newTodo, setNewTodo] = useState("");
 
   return (
-    <div className="input-container">
+    <fieldset className="fieldset my-4 w-full">
       <input
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
         type="text"
-        className="input-field"
+        className="input w-full"
         placeholder="Add a new task..."
       />
       <button
@@ -21,13 +21,12 @@ const ToDoInput = (props) => {
             setNewTodo("");
           }
         }}
-        className="add-button"
+        type="button"
+        className="btn btn-primary"
       >
-        <h6>
-          <i className="fa-solid fa-plus"></i>
-        </h6>
+        <i className="fa fa-plus" aria-hidden="true"></i> Add
       </button>
-    </div>
+    </fieldset>
   );
 };
 

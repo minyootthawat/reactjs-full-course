@@ -4,17 +4,26 @@ const TodoCard = (props) => {
   const { todo, todoId, completeTodo, deleteTodo } = props;
 
   return (
-    <div className="card todo-item">
-      <p>{todo.input}</p>
-      <div className="todo-buttons">
-        <button disabled={todo.completed} onClick={() => completeTodo(todoId)}>
-          <h6>Done</h6>
+    <li className="list-row flex justify-between">
+      <div className="flex items-center">
+        <div>{todo.input}</div>
+      </div>
+      <div>
+        <button
+          disabled={todo.completed}
+          onClick={() => completeTodo(todoId)}
+          className="btn btn-square btn-ghost"
+        >
+          <i className="fa fa-check" aria-hidden="true"></i>
         </button>
-        <button onClick={() => deleteTodo(todoId)}>
-          <h6>Delete</h6>
+        <button
+          onClick={() => deleteTodo(todoId)}
+          className="btn btn-square btn-ghost"
+        >
+          <i className="fas fa-trash-alt    "></i>
         </button>
       </div>
-    </div>
+    </li>
   );
 };
 

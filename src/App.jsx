@@ -6,13 +6,7 @@ import ToDoInput from "./components/ToDoInput";
 import ToDoList from "./components/ToDoList";
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: 0,
-      input: "Complete the project",
-      completed: false,
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
 
   const [selectedTab, setSelectedTab] = useState("Open");
 
@@ -40,12 +34,9 @@ function App() {
   }
 
   function deleteTodo(id) {
-    console.log(id);
-    
-
     const newTodoList = todos.filter((todo, index) => index !== id);
     console.log(newTodoList);
-    
+
     setTodos(newTodoList);
     saveTodosToLocalStorage(newTodoList);
   }
@@ -68,13 +59,20 @@ function App() {
   }, []);
 
   return (
-    <>
-      <Header todos={todos} />
-      <Tabs
-        todos={todos}
-        selectedTab={selectedTab}
-        setSelectedTap={setSelectedTab}
-      />
+    <div className="w-full min-h-screen bg-base-200 flex flex-col items-center max-w-[500px] mx-auto px-4">
+      <div className="flex flex-col w-full max-w-lg">
+        <div className="col">
+          <Header todos={todos} />
+        </div>
+        <div className="col">
+          <Tabs
+            todos={todos}
+            selectedTab={selectedTab}
+            setSelectedTap={setSelectedTab}
+          />
+        </div>
+      </div>
+
       <ToDoList
         todos={todos}
         selectedTab={selectedTab}
@@ -82,7 +80,7 @@ function App() {
         deleteTodo={deleteTodo}
       />
       <ToDoInput addTodo={addTodo} />
-    </>
+    </div>
   );
 }
 
